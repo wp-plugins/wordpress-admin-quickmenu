@@ -58,24 +58,51 @@ function WordPressAdminQuickMenu_options() {
     <div id="side-sortables" class="meta-box-sortabless ui-sortable" style="position:relative;">
     
     <div id="sm_pnres" class="postbox">
-    <h3 class="hndle"><span>About this Plugin:</span></h3>
+    <h3 class="hndle"><span>About this Plugin</span></h3>
     <div class="inside">
     <ul class='options'>
-    <style>.options a {text-decoration:none;}</style>
-    <li><a href="http://www.thisismyurl.com/wordpress/plugins/wordpress-admin-quickmenu/">Plugin Homepage</a></li>
-    <li><a href="http://wordpress.org/extend/plugins/wordpress-admin-quickmenu/">Vote for this Plugin</a></li>
-    <li><a href="http://forums.thisismyurl.com/">Support Forum</a></li>
-    <li><a href="http://support.thisismyurl.com/">Report a Bug</a></li>
-    <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895">Donate with PayPal</a></li>
-    
-    <?php 
-	  	$pluginUpdate = file_get_contents('http://downloads.wordpress.org/plugin/wordpress-admin-quickmenu.zip');
-	 	// scan for updates here
-		// include menu item if found
-	 ?>
+		<style>.options a {text-decoration:none;}</style>
+        <li><a href="http://www.thisismyurl.com/wordpress/plugins/wordpress-admin-quickmenu/">Plugin Homepage</a></li>
+        <li><a href="http://wordpress.org/extend/plugins/wordpress-admin-quickmenu/">Vote for this Plugin</a></li>
+        <li><a href="http://forums.thisismyurl.com/">Support Forum</a></li>
+        <li><a href="http://support.thisismyurl.com/">Report a Bug</a></li>
+        <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895">Donate with PayPal</a></li>
     </ul>
     </div>
     </div>
+
+    <?php 
+	if (function_exists(zip_open)) {
+	$file = "wordpress-admin-quickmenu";
+	$pluginUpdate = file_get_contents('http://downloads.wordpress.org/plugin/'.$file.'.zip');
+	$myFile = "../wp-content/uploads/cache-".$file.".zip";
+	$fh = fopen($myFile, 'w') or die("can't open file");
+	$stringData = $pluginUpdate;
+	fwrite($fh, $stringData);
+	fclose($fh);
+	
+	$zip = zip_open($myFile);
+	while ($zip_entry = zip_read($zip)) {
+		if (zip_entry_name($zip_entry) == $file."/".$file.".php") {$size = zip_entry_filesize($zip_entry);}
+	}
+	zip_close($zip);
+	unlink($myFile);
+	
+	if ($size != filesize("../wp-content/plugins/".$file."/".$file.".php")) {?>    
+    <div id="sm_pnres" class="postbox">
+        <h3 class="hndle"><span>Plugin Status</span></h3>
+        <div class="inside">
+        <ul class='options'>
+        <style>.options a {text-decoration:none;}</style>
+        <li>This plugin is out of date. <a href='http://downloads.wordpress.org/plugin/<?php echo $file;?>.zip'>Please <strong>download</strong> the latest version.</a></li>
+        </ul>
+        </div>
+        </div>
+    <?php 
+    }}
+	?>
+    
+    
     
     </div>
     </div>
@@ -89,7 +116,7 @@ function WordPressAdminQuickMenu_options() {
     <!-- Rebuild Area -->
     <!-- Basic Options -->
     <div id="sm_basic_options" class="postbox">
-    <h3 class="hndle"><span>Basic Options</span></h3>
+    <h3 class="hndle"><span>Options</span></h3>
     <div class="inside">
     <?
 	
