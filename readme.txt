@@ -5,9 +5,10 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: admin, menu, admin theme, custom, links, link
 Requires at least: 2.0.0
 Tested up to: 2.7.1
-Stable tag: 0.0.1
+Stable tag: 1.0.2
 
 This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
+
 == Description ==
 
 This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.

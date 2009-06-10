@@ -4,7 +4,7 @@ Plugin Name: WordPress Admin Quick Menu
 Plugin URI: http://www.thisismyurl.com/wordpress/plugins/wordpress-admin-quickmenu/
 Description:  This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
 Author: Christopher Ross
-Version: 1.0.1
+Version: 1.0.2
 Author URI: http://www.thisismyurl.com
 */
 
@@ -73,32 +73,36 @@ function WordPressAdminQuickMenu_options() {
 
     <?php 
 	if (function_exists(zip_open)) {
-	$file = "wordpress-admin-quickmenu";
-	$pluginUpdate = file_get_contents('http://downloads.wordpress.org/plugin/'.$file.'.zip');
-	$myFile = "../wp-content/uploads/cache-".$file.".zip";
-	$fh = fopen($myFile, 'w') or die("can't open file");
-	$stringData = $pluginUpdate;
-	fwrite($fh, $stringData);
-	fclose($fh);
-	
-	$zip = zip_open($myFile);
-	while ($zip_entry = zip_read($zip)) {
-		if (zip_entry_name($zip_entry) == $file."/".$file.".php") {$size = zip_entry_filesize($zip_entry);}
-	}
-	zip_close($zip);
-	unlink($myFile);
-	
-	if ($size != filesize("../wp-content/plugins/".$file."/".$file.".php")) {?>    
-    <div id="sm_pnres" class="postbox">
-        <h3 class="hndle"><span>Plugin Status</span></h3>
-        <div class="inside">
-        <ul class='options'>
-        <style>.options a {text-decoration:none;}</style>
-        <li>This plugin is out of date. <a href='http://downloads.wordpress.org/plugin/<?php echo $file;?>.zip'>Please <strong>download</strong> the latest version.</a></li>
-        </ul>
-        </div>
-        </div>
-    <?php 
+		$file = "wordpress-admin-quickmenu";
+		$lastupdate = get_option($file."-update");
+		if (strlen($lastupdate )==0 || date("U")-$lastupdate > $lastupdate) {
+			$pluginUpdate = file_get_contents('http://downloads.wordpress.org/plugin/'.$file.'.zip');
+			$myFile = "../wp-content/uploads/cache-".$file.".zip";
+			$fh = fopen($myFile, 'w') or die("can't open file");
+			$stringData = $pluginUpdate;
+			fwrite($fh, $stringData);
+			fclose($fh);
+			
+			$zip = zip_open($myFile);
+			while ($zip_entry = zip_read($zip)) {
+				if (zip_entry_name($zip_entry) == $file."/".$file.".php") {$size = zip_entry_filesize($zip_entry);}
+			}
+			zip_close($zip);
+			unlink($myFile);
+			
+			if ($size != filesize("../wp-content/plugins/".$file."/".$file.".php")) {?>    
+			<div id="sm_pnres" class="postbox">
+				<h3 class="hndle"><span>Plugin Status</span></h3>
+				<div class="inside">
+				<ul class='options'>
+				<style>.options a {text-decoration:none;}</style>
+				<li>This plugin is out of date. <a href='http://downloads.wordpress.org/plugin/<?php echo $file;?>.zip'>Please <strong>download</strong> the latest version.</a></li>
+				</ul>
+				</div>
+				</div>
+	<?php
+		} 
+		update_option($file."-update", date('U'));
     }}
 	?>
     
