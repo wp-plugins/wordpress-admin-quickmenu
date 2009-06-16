@@ -4,7 +4,7 @@ Plugin Name: WordPress Admin Quick Menu
 Plugin URI: http://www.thisismyurl.com/wordpress/plugins/wordpress-admin-quickmenu/
 Description:  This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
 Author: Christopher Ross
-Version: 1.0.2
+Version: 1.0.3
 Author URI: http://www.thisismyurl.com
 */
 
@@ -28,7 +28,12 @@ Author URI: http://www.thisismyurl.com
 
 $menuitem=get_option("quickmenu-1");
 if (strlen($menuitem) < 10) {
-	update_option("quickmenu-10", "Plugin Homepage||http://www.thisismyurl.com||10");
+	update_option("quickmenu-1", "Google Analytics||http://www.google.com/analytics||10");
+	update_option("quickmenu-2", "Google AdSense||http://www.google.com/adsense||10");
+	update_option("quickmenu-3", "Google Webmaster Tools||http://www.google.com/webmasters||10");
+	update_option("quickmenu-4", "Google Adwords||http://adwords.google.com||10");
+	update_option("quickmenu-5", "WordPress||http://www.wordpress.org||10");
+	update_option("quickmenu-10", "Plugin Author||http://www.thisismyurl.com||10");
 }
 
 add_action('admin_menu', 'WordPressAdminQuickMenu_menu');
