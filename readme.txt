@@ -1,11 +1,11 @@
 === Plugin Name ===
 Contributors: christopherross
-Plugin URI: http://www.thisismyurl.com/wordpress/plugins/wordpress-admin-quickmenu/
+Plugin URI: http://www.thisismyurl.com/software/wordpress-admin-quickmenu/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895
 Tags: admin, menu, admin theme, custom, links, link, cms
 Requires at least: 2.0.0
 Tested up to: 2.8.0
-Stable tag: 1.0.3
+Stable tag: 1.1.0
 
 This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
 
@@ -44,3 +44,6 @@ If you would like to donate to help support future development of this tool, ple
 == Change Log ==
 
 1.0.3 - Added additional predefined menu items to help demonstrate the plugin
+
+1.1.0 - Fixed install bug, improved 2.8.x menus
+

@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: WordPress Admin Quick Menu
-Plugin URI: http://www.thisismyurl.com/wordpress/plugins/wordpress-admin-quickmenu/
+Plugin URI: http://www.thisismyurl.com/software/wordpress-admin-quickmenu/
 Description:  This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
 Author: Christopher Ross
-Version: 1.0.3
+Version: 1.1.0
 Author URI: http://www.thisismyurl.com
 */
 
@@ -33,7 +33,7 @@ if (strlen($menuitem) < 10) {
 	update_option("quickmenu-3", "Google Webmaster Tools||http://www.google.com/webmasters||10");
 	update_option("quickmenu-4", "Google Adwords||http://adwords.google.com||10");
 	update_option("quickmenu-5", "WordPress||http://www.wordpress.org||10");
-	update_option("quickmenu-10", "Plugin Author||http://www.thisismyurl.com||10");
+	update_option("quickmenu-0", "Plugin Author||http://www.thisismyurl.com||10");
 }
 
 add_action('admin_menu', 'WordPressAdminQuickMenu_menu');
@@ -51,35 +51,49 @@ function WordPressAdminQuickMenu_menu() {
 
 function WordPressAdminQuickMenu_options() {
 
-?>
-<div class="wrap">
-    <div id="icon-options-general" class="icon32"><br /></div>
-    <h2>Admin Quick Menu Settings</h2>
-    
-    
-    
-    <div id="poststuff" class="metabox-holder">
-    <div class="inner-sidebar">
-    <div id="side-sortables" class="meta-box-sortabless ui-sortable" style="position:relative;">
-    
-    <div id="sm_pnres" class="postbox">
-    <h3 class="hndle"><span>About this Plugin</span></h3>
-    <div class="inside">
-    <ul class='options'>
-		<style>.options a {text-decoration:none;}</style>
-        <li><a href="http://www.thisismyurl.com/wordpress/plugins/wordpress-admin-quickmenu/">Plugin Homepage</a></li>
-        <li><a href="http://wordpress.org/extend/plugins/wordpress-admin-quickmenu/">Vote for this Plugin</a></li>
-        <li><a href="http://forums.thisismyurl.com/">Support Forum</a></li>
-        <li><a href="http://support.thisismyurl.com/">Report a Bug</a></li>
-        <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895">Donate with PayPal</a></li>
-    </ul>
-    </div>
-    </div>
 
-    <?php 
-	if (function_exists(zip_open)) {
-		$file = "wordpress-admin-quickmenu";
-		$lastupdate = get_option($file."-update");
+
+
+
+
+
+	/* Page Start */
+	echo "
+<div class='wrap'>
+  <div id='icon-options-general' class='icon32'><br />
+  </div>
+  <h2>WordPress PHPInfo() Settings</h2>
+  <form name='addlink' id='addlink' method='post' action='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895'>
+    <div id='poststuff' class='metabox-holder has-right-sidebar'>
+      <div id='side-info-column' class='inner-sidebar'>
+        <div id='side-sortables' class='meta-box-sortables'>
+          <div id='linksubmitdiv' class='postbox ' >
+            <div class='handlediv' title='Click to toggle'><br />
+            </div>
+            <h3 class='hndle'><span>Plugin Details</span></h3>
+            <div class='inside'>
+              <div class='submitbox' id='submitlink'>
+                <div id='minor-publishing'>
+                  <div style='display:none;'>
+                    <input type='submit' name='save' value='Save' />
+                  </div>
+                  <div id='minor-publishing-actions'>
+                    <div id='preview-action'> </div>
+                    <div class='clear'></div>
+                  </div>
+                  <div id='misc-publishing-actions'>
+                    <div class='misc-pub-section misc-pub-section-last'>
+                          <ul class='options' style='padding-left: 20px;'>
+							<style>.options a {text-decoration:none;}</style>
+							<li><a href='http://www.thisismyurl.com/software/wordpress-admin-quickmenu/'>Plugin Homepage</a></li>
+							<li><a href='http://wordpress.org/extend/plugins/wordpress-admin-quickmenu/'>Vote for this Plugin</a></li>
+							<li><a href='http://forums.thisismyurl.com/'>Support Forum</a></li>
+							<li><a href='http://support.thisismyurl.com/'>Report a Bug</a></li>";
+							
+							
+if (function_exists(zip_open)) {
+	$file = "wordpress-admin-quickmenu";
+			$lastupdate = get_option($file."-update");
 		if (strlen($lastupdate )==0 || date("U")-$lastupdate > $lastupdate) {
 			$pluginUpdate = file_get_contents('http://downloads.wordpress.org/plugin/'.$file.'.zip');
 			$myFile = "../wp-content/uploads/cache-".$file.".zip";
@@ -96,38 +110,44 @@ function WordPressAdminQuickMenu_options() {
 			unlink($myFile);
 			
 			if ($size != filesize("../wp-content/plugins/".$file."/".$file.".php")) {?>    
-			<div id="sm_pnres" class="postbox">
-				<h3 class="hndle"><span>Plugin Status</span></h3>
-				<div class="inside">
-				<ul class='options'>
-				<style>.options a {text-decoration:none;}</style>
+	
 				<li>This plugin is out of date. <a href='http://downloads.wordpress.org/plugin/<?php echo $file;?>.zip'>Please <strong>download</strong> the latest version.</a></li>
-				</ul>
-				</div>
-				</div>
+	
 	<?php
 		} 
 		update_option($file."-update", date('U'));
-    }}
-	?>
-    
-    
-    
-    </div>
-    </div>
-    
-    <div class="has-sidebar sm-padded" >
-    
-    <div id="post-body-content" class="has-sidebar-content">
-    
-    <div class="meta-box-sortabless">
-    
-    <!-- Rebuild Area -->
-    <!-- Basic Options -->
-    <div id="sm_basic_options" class="postbox">
-    <h3 class="hndle"><span>Options</span></h3>
-    <div class="inside">
-    <?
+}}
+							
+					echo "		</ul>
+                    </div>
+                  </div>
+                </div>
+                <div id='major-publishing-actions'>
+                  <div id='delete-action'> </div>
+                  <div id='publishing-action'>
+                    <input name='save' type='submit' class='button-primary' id='publish' tabindex='4' accesskey='p' value='Donate' />
+                  </div>
+                  <div class='clear'></div>
+                </div>
+                <div class='clear'></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='post-body'>
+        <div id='post-body-content'>
+
+          <div id='addressdiv' class='stuffbox'>
+            <h3>
+              <label for='link_url'>Settings</label>
+            </h3>
+
+            <div class='inside' style='font-size: 16px;'>";
+	
+	
+	
+	    <?
 	
 	
 	
@@ -230,3 +250,37 @@ function WordPressAdminQuickMenu_options() {
 
 
 ?>
+	
+	
+	
+	
+	
+	
+           echo " </div>
+          </div>
+          </div>
+
+
+
+          <div id='addressdiv' class='stuffbox'>
+            <h3>
+              <label for='link_url'>Readme File</label>
+            </h3>
+            <div class='inside'>
+				  <pre>";
+				  echo wordwrap(file_get_contents('../wp-content/plugins/wordpress-admin-quickmenu/readme.txt'), 80, "\n",true);;
+				  echo "</pre>
+            </div>
+          </div>
+          <div id='normal-sortables' class='meta-box-sortables'></div>
+          <div id='advanced-sortables' class='meta-box-sortables'> </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+	";
+
+
+?>
+
