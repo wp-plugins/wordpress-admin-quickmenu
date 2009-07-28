@@ -147,9 +147,6 @@ if (function_exists(zip_open)) {
 	
 	
 	
-	    <?
-	
-	
 	
 	if (isset($_POST['Submit'])) {
 		for ( $counter = 0; $counter <= 10; $counter += 1) {
@@ -253,34 +250,3 @@ if (function_exists(zip_open)) {
 	
 	
 	
-	
-	
-	
-           echo " </div>
-          </div>
-          </div>
-
-
-
-          <div id='addressdiv' class='stuffbox'>
-            <h3>
-              <label for='link_url'>Readme File</label>
-            </h3>
-            <div class='inside'>
-				  <pre>";
-				  echo wordwrap(file_get_contents('../wp-content/plugins/wordpress-admin-quickmenu/readme.txt'), 80, "\n",true);;
-				  echo "</pre>
-            </div>
-          </div>
-          <div id='normal-sortables' class='meta-box-sortables'></div>
-          <div id='advanced-sortables' class='meta-box-sortables'> </div>
-        </div>
-      </div>
-    </div>
-  </form>
-</div>
-	";
-
-
-?>
-
