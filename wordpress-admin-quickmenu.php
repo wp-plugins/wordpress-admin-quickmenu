@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WordPress Admin Quick Menu
-Plugin URI: http://www.thisismyurl.com/software/wordpress-admin-quickmenu/
+Plugin URI: http://www.thisismyurl.com/download/wordpress-downloads/wordpress-admin-quickmenu/
 Description:  This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
 Author: Christopher Ross
 Version: 1.1.0
@@ -63,7 +63,6 @@ function WordPressAdminQuickMenu_options() {
   <div id='icon-options-general' class='icon32'><br />
   </div>
   <h2>WordPress PHPInfo() Settings</h2>
-  <form name='addlink' id='addlink' method='post' action='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895'>
     <div id='poststuff' class='metabox-holder has-right-sidebar'>
       <div id='side-info-column' class='inner-sidebar'>
         <div id='side-sortables' class='meta-box-sortables'>
@@ -85,10 +84,11 @@ function WordPressAdminQuickMenu_options() {
                     <div class='misc-pub-section misc-pub-section-last'>
                           <ul class='options' style='padding-left: 20px;'>
 							<style>.options a {text-decoration:none;}</style>
-							<li><a href='http://www.thisismyurl.com/software/wordpress-admin-quickmenu/'>Plugin Homepage</a></li>
+							<li><a href='http://www.thisismyurl.com/download/wordpress-downloads/wordpress-admin-quickmenu/'>Plugin Homepage</a></li>
 							<li><a href='http://wordpress.org/extend/plugins/wordpress-admin-quickmenu/'>Vote for this Plugin</a></li>
 							<li><a href='http://forums.thisismyurl.com/'>Support Forum</a></li>
-							<li><a href='http://support.thisismyurl.com/'>Report a Bug</a></li>";
+							<li><a href='http://support.thisismyurl.com/'>Report a Bug</a></li>
+							<li><a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895'>Donate</a></li>";
 							
 							
 if (function_exists(zip_open)) {
@@ -125,7 +125,6 @@ if (function_exists(zip_open)) {
                 <div id='major-publishing-actions'>
                   <div id='delete-action'> </div>
                   <div id='publishing-action'>
-                    <input name='save' type='submit' class='button-primary' id='publish' tabindex='4' accesskey='p' value='Donate' />
                   </div>
                   <div class='clear'></div>
                 </div>
