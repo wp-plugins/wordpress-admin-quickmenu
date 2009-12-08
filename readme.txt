@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: christopherross
-Plugin URI: http://www.thisismyurl.com/download/wordpress-downloads/wordpress-admin-quickmenu/
+Plugin URI: http://regentware.com/software/web-based/wordpress-plugins/quick-menu/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895
 Tags: admin, menu, admin theme, custom, links, link, cms
 Requires at least: 2.0.0
@@ -18,7 +18,7 @@ The plugin works by creating a new menu and placing it on the left side of your 
 You can add new menu items, adjust the security level for each and have the menu items link to external or internal pages for easy access.
 
 == Updates ==
-Updates to the plugin will be posted here, to [thisismyurl.com](http://www.thisismyurl.com/wordpress/plugins/wordpress-admin-quickmenu/
+Updates to the plugin will be posted here, to [thisismyurl.com](http://regentware.com/software/web-based/wordpress-plugins/quick-menu/
 )
 
 == Screenshots ==
