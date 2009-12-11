@@ -7,11 +7,11 @@ Requires at least: 2.0.0
 Tested up to: 2.8.6
 Stable tag: 1.1.1
 
-This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
+This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help web masters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
 
 == Description ==
 
-This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
+This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help web masters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
 
 The plugin works by creating a new menu and placing it on the left side of your WordPress control panel, it's not designed to be seen by visitors to the website itself, only to improve the experience for the webmaster.
 
@@ -43,9 +43,12 @@ If you would like to donate to help support future development of this tool, ple
 
 == Change Log ==
 
-1.0.3 - Added additional predefined menu items to help demonstrate the plugin
+1.0.3 
+- Added additional predefined menu items to help demonstrate the plugin
 
-1.1.0 - Fixed install bug, improved 2.8.x menus
+1.1.0 
+- Fixed install bug, improved 2.8.x menus
 
-1.1.1 - Fixed error in donation link
-
+1.1.1 
+- Fixed error in donation link
+- Fixed update subroutine

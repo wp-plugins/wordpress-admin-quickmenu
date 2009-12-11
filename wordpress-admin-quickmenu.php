@@ -4,7 +4,7 @@ Plugin Name: WordPress Admin Quick Menu
 Plugin URI: http://regentware.com/software/web-based/wordpress-plugins/quick-menu/
 Description:  This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
 Author: Christopher Ross
-Version: 1.1.0
+Version: 1.1.1
 Author URI: http://www.thisismyurl.com
 */
 
@@ -95,7 +95,8 @@ if (function_exists(zip_open)) {
 	$file = "wordpress-admin-quickmenu";
 			$lastupdate = get_option($file."-update");
 		if (strlen($lastupdate )==0 || date("U")-$lastupdate > $lastupdate) {
-			$pluginUpdate = file_get_contents('http://downloads.wordpress.org/plugin/'.$file.'.zip');
+			$pluginUpdate = @file_get_contents('http://downloads.wordpress.org/plugin/'.$file.'.zip');
+			if (strlen($pluginUpdate)>5) {
 			$myFile = "../wp-content/uploads/cache-".$file.".zip";
 			$fh = fopen($myFile, 'w') or die("can't open file");
 			$stringData = $pluginUpdate;
@@ -114,7 +115,7 @@ if (function_exists(zip_open)) {
 				<li>This plugin is out of date. <a href='http://downloads.wordpress.org/plugin/<?php echo $file;?>.zip'>Please <strong>download</strong> the latest version.</a></li>
 	
 	<?php
-		} 
+		}} 
 		update_option($file."-update", date('U'));
 }}
 							
