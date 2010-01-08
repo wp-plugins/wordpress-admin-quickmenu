@@ -4,7 +4,7 @@ Plugin Name: WordPress Admin Quick Menu
 Plugin URI: http://regentware.com/software/web-based/wordpress-plugins/quick-menu/
 Description:  This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
 Author: Christopher Ross
-Version: 1.1.1
+Version: 1.1.2
 Author URI: http://www.thisismyurl.com
 */
 
@@ -33,7 +33,8 @@ if (strlen($menuitem) < 10) {
 	update_option("quickmenu-3", "Google Webmaster Tools||http://www.google.com/webmasters||10");
 	update_option("quickmenu-4", "Google Adwords||http://adwords.google.com||10");
 	update_option("quickmenu-5", "WordPress||http://www.wordpress.org||10");
-	update_option("quickmenu-0", "Plugin Author||http://www.thisismyurl.com||10");
+	update_option("quickmenu-8", "Plugin Author||http://www.thisismyurl.com||10");
+	update_option("quickmenu-9", "Make Donation||https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895||10");
 }
 
 add_action('admin_menu', 'WordPressAdminQuickMenu_menu');
@@ -170,6 +171,7 @@ if (function_exists(zip_open)) {
 		echo "<tr>";
 		unset($menuitem);
 		$menuitem=get_option("quickmenu-".$counter);
+		unset($menu);
 		if (strlen($menuitem) > 5) {
 			$menu = explode("||",get_option("quickmenu-".$counter));
 		}
