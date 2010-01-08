@@ -63,7 +63,7 @@ function WordPressAdminQuickMenu_options() {
 <div class='wrap'>
   <div id='icon-options-general' class='icon32'><br />
   </div>
-  <h2>WordPress PHPInfo() Settings</h2>
+  <h2>WordPress Quick Menu Settings</h2>
     <div id='poststuff' class='metabox-holder has-right-sidebar'>
       <div id='side-info-column' class='inner-sidebar'>
         <div id='side-sortables' class='meta-box-sortables'>
