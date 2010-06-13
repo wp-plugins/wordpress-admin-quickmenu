@@ -4,7 +4,7 @@ Plugin URI: http://regentware.com/software/web-based/wordpress-plugins/quick-men
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895
 Tags: admin, menu, admin theme, custom, links, link, cms
 Requires at least: 2.0.0
-Tested up to: 2.9.1
+Tested up to: 3.0.0
 Stable tag: 1.1.2
 
 This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help web masters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
