@@ -5,11 +5,11 @@ Plugin URI: http://regentware.com/software/web-based/wordpress-plugins/quick-men
 Description:  This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
 Author: Christopher Ross
 Version: 1.1.3
-Author URI: http://www.thisismyurl.com
+Author URI: http://christopherross.ca
 */
 
 
-/*  Copyright 2008  Christopher Ross  (email : info@thisismyurl.com)
+/*  Copyright 2008  Christopher Ross  (email : info@christopherross.ca)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -33,8 +33,8 @@ if (strlen($menuitem) < 10) {
 	update_option("quickmenu-3", "Google Webmaster Tools||http://www.google.com/webmasters||10");
 	update_option("quickmenu-4", "Google Adwords||http://adwords.google.com||10");
 	update_option("quickmenu-5", "WordPress||http://www.wordpress.org||10");
-	update_option("quickmenu-8", "Plugin Author||http://www.thisismyurl.com||10");
-	update_option("quickmenu-9", "Make Donation||https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895||10");
+	update_option("quickmenu-8", "Plugin Author||http://christopherross.ca||10");
+	update_option("quickmenu-9", "Make Donation||http://regentware.com/donate/?5998895||10");
 }
 
 add_action('admin_menu', 'WordPressAdminQuickMenu_menu');
@@ -87,9 +87,9 @@ function WordPressAdminQuickMenu_options() {
 							<style>.options a {text-decoration:none;}</style>
 							<li><a href='http://regentware.com/software/web-based/wordpress-plugins/quick-menu/'>Plugin Homepage</a></li>
 							<li><a href='http://wordpress.org/extend/plugins/wordpress-admin-quickmenu/'>Vote for this Plugin</a></li>
-							<li><a href='http://forums.thisismyurl.com/'>Support Forum</a></li>
-							<li><a href='http://support.thisismyurl.com/'>Report a Bug</a></li>
-							<li><a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895'>Donate</a></li>";
+							<li><a href='http://forums.christopherross.ca/'>Support Forum</a></li>
+							<li><a href='http://support.christopherross.ca/'>Report a Bug</a></li>
+							<li><a href='http://regentware.com/donate/?5998895'>Donate</a></li>";
 							
 							
 							

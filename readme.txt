@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: christopherross
-Plugin URI: http://regentware.com/software/web-based/wordpress-plugins/quick-menu/
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895
+Plugin URI: http://regentware.com/41/wordpress-admin-quick-menu/
+Donate link:  http://regentware.com/donate/
 Tags: admin, menu, admin theme, custom, links, link, cms
 Requires at least: 2.0.0
 Tested up to: 3.0.1
@@ -18,7 +18,7 @@ The plugin works by creating a new menu and placing it on the left side of your 
 You can add new menu items, adjust the security level for each and have the menu items link to external or internal pages for easy access.
 
 == Updates ==
-Updates to the plugin will be posted here, to [thisismyurl.com](http://regentware.com/software/web-based/wordpress-plugins/quick-menu/
+Updates to the plugin will be posted here, to [christopherross.ca](http://regentware.com/software/web-based/wordpress-plugins/quick-menu/
 )
 
 == Screenshots ==
@@ -38,7 +38,7 @@ A new menu called Quick Menu appears in the lower left of a standard WordPress a
 
 
 == Donations ==
-If you would like to donate to help support future development of this tool, please visit [thisismyurl](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5998895)
+If you would like to donate to help support future development of this tool, please visit [Regent Software](http://regentware.com/donate/?5998895)
 
 
 == Change Log ==
