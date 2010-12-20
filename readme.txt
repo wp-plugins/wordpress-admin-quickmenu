@@ -1,11 +1,11 @@
 === Plugin Name ===
 Contributors: christopherross
-Plugin URI: http://regentware.com/41/wordpress-admin-quick-menu/
-Donate link:  http://regentware.com/donate/
+Plugin URI: http://thisismyurl.com/downloads/wordpress/plugins/wordpress-admin-quick-menu/
+Donate link:  http://thisismyurl.com/
 Tags: admin, menu, admin theme, custom, links, link, cms
 Requires at least: 2.0.0
-Tested up to: 3.0.1
-Stable tag: 1.1.3
+Tested up to: 3.0.3
+Stable tag: 1.1.4
 
 This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help web masters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
 
@@ -42,6 +42,12 @@ If you would like to donate to help support future development of this tool, ple
 
 
 == Change Log ==
+
+= 1.1.4 =
+
+* fixed problem causing some sites not to load externally
+* updated version
+
 
 = 1.1.3 =
 
