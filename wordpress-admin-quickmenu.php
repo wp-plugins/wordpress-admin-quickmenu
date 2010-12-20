@@ -4,8 +4,8 @@ Plugin Name: WordPress Admin Quick Menu
 Plugin URI: http://thisismyurl.com/downloads/wordpress/plugins/wordpress-admin-quick-menu/
 Description:  This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
 Author: Christopher Ross
-Version: 1.1.4
-Author URI: http://thisismyurl.com
+Version: 1.1.5
+Author URI: http://thisismyurl.com/
 */
 
 
@@ -26,6 +26,8 @@ Author URI: http://thisismyurl.com
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+$slug = 'WordPressAdminQuickMenu.php';
+
 $menuitem=get_option("quickmenu-1");
 if (strlen($menuitem) < 10) {
 	update_option("quickmenu-1", "Google Analytics||http://www.google.com/analytics||10");
@@ -33,22 +35,35 @@ if (strlen($menuitem) < 10) {
 	update_option("quickmenu-3", "Google Webmaster Tools||http://www.google.com/webmasters||10");
 	update_option("quickmenu-4", "Google Adwords||http://adwords.google.com||10");
 	update_option("quickmenu-5", "WordPress||http://www.wordpress.org||10");
-	update_option("quickmenu-8", "Plugin Author||http://thisismyurl.com/downloads/wordpress/plugins/wordpress-admin-quick-menu/||10");
-	update_option("quickmenu-9", "Make Donation||http://thisismyurl.com||10");
+	update_option("quickmenu-8", "Plugin Author||http://thisismyurl.com/||10");
+	update_option("quickmenu-9", "Make Donation||http://thisismyurl.com/downloads/wordpress/plugins/wordpress-admin-quick-menu/||10");
 }
 
 add_action('admin_menu', 'WordPressAdminQuickMenu_menu');
 
 function WordPressAdminQuickMenu_menu() {
   add_menu_page('Quick Menu', 'Quick Menu', 10,'WordPressAdminQuickMenu.php', 'WordPressAdminQuickMenu_options');
+//  add_menu_page('Quick Menu', 'Quick Menu', 10,'WordPressAdminQuickMenu.php', 'WordPressAdminQuickMenu_options');
 	for ( $counter = 0; $counter <= 10; $counter += 1) {
 		$menuitem=get_option("quickmenu-".$counter);
-		if (strlen($menuitem) > 10) {
+		if (strlen(trim($menuitem)) > 0) {
 			$menu = explode("||",get_option("quickmenu-".$counter));
-			add_submenu_page('WordPressAdminQuickMenu.php', $menu[0], $menu[0], $menu[2], $menu[1]);
+//			add_submenu_page('WordPressAdminQuickMenu.php', $menu[0], $menu[0], $menu[2], $menu[1]);
+			add_submenu_page('WordPressAdminQuickMenu.php', $menu[0], $menu[0], $menu[2], 'admin.php?page=WordPressAdminQuickMenu.php&href='.rawurlencode($menu[1]));
 		}
 	}
 }
+
+// Perform Redirect
+function WordPressAdminQuickMenu_redirect() {
+	Header( "Location: " . $_GET['href'] );
+	die();
+	// To open in a new window, have this function write to wp_admin_head or something and insert some JS to handle it
+}
+if(strlen($_GET['href']) > 0) {
+	WordPressAdminQuickMenu_redirect();
+}
+
 
 function WordPressAdminQuickMenu_options() {
 
@@ -90,9 +105,9 @@ function WordPressAdminQuickMenu_options() {
 							<li><a href='http://forums.christopherross.ca/'>Support Forum</a></li>
 							<li><a href='http://support.christopherross.ca/'>Report a Bug</a></li>
 							<li><a href='http://regentware.com/donate/?5998895'>Donate</a></li>";
-							
-							
-							
+
+
+
 					echo "		</ul>
                     </div>
                   </div>
@@ -118,17 +133,17 @@ function WordPressAdminQuickMenu_options() {
             </h3>
 
             <div class='inside' style='font-size: 16px;'>";
-	
-	
-	
-	
+
+
+
+
 	if (isset($_POST['Submit'])) {
 		for ( $counter = 0; $counter <= 10; $counter += 1) {
 			update_option("quickmenu-".$counter, $_POST['name-'.$counter]."||".$_POST['url-'.$counter]."||".$_POST['security-'.$counter]);
 		}
 		echo "<div id='message' class='updated fade'><p><strong>Settings saved. Please <a href='admin.php?page=WordPressAdminQuickMenu.php'>reload</a> for settings to take affect.</strong></p></div>";
 	}
-	
+
 	?>
     <form method="post">
     <?php
@@ -140,7 +155,7 @@ function WordPressAdminQuickMenu_options() {
 	echo "</tr>";
 
 	for ( $counter = 0; $counter <= 10; $counter += 1) {
-	
+
 		echo "<tr>";
 		unset($menuitem);
 		$menuitem=get_option("quickmenu-".$counter);
@@ -148,11 +163,11 @@ function WordPressAdminQuickMenu_options() {
 		if (strlen($menuitem) > 5) {
 			$menu = explode("||",get_option("quickmenu-".$counter));
 		}
-		
+
 		echo "<td><input type='text' name='name-$counter' id='name-$counter' value='".$menu[0]."' style='width: 150px;'></td>";
 		echo "<td><input type='text' name='url-$counter' id='url-$counter'  value='".$menu[1]."' style='width: 280px;'></td>";
 		echo "<td><select name='security-$counter' id='security-$counter'>";
-		
+
 		echo "<option value='10'";
 		if (!$menu[2] && $a == 10) {echo ' selected';}
 		echo ">Administrator</option>";
@@ -174,10 +189,10 @@ function WordPressAdminQuickMenu_options() {
 		echo "</tr>";
 	}
 	echo "</table>";
-	
+
 	?>
     <p class="hndle">This Plugin using the <a href='http://codex.wordpress.org/Roles_and_Capabilities'>Roles_and_Capabilities</a> for Security Levels.</p>
-    
+
     <p class="submit">
     <input type="submit" name="Submit" class="button-primary" value="Save Changes" />
     </p>
@@ -188,11 +203,11 @@ function WordPressAdminQuickMenu_options() {
 
 
 
-    
+
     <div id="sm_basic_options2" class="postbox">
       <h3 class="hndle"><span>Read Me File Contents</span></h3>
     <div class="inside">
-      <?php 
+      <?php
 	  $contents = file_get_contents('../wp-content/plugins/wordpress-admin-quickmenu/readme.txt');
 	  $contents = str_replace("\n","<br>",$contents);
 	  echo $contents;
