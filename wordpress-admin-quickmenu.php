@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WordPress Admin Quick Menu
-Plugin URI: http://thisismyurl.com/downloads/wordpress/plugins/wordpress-admin-quick-menu/
+Plugin URI: http://thisismyurl.com/plugins/wordpress-admin-quick-menu/
 Description:  This simple WordPress plugin allows users to add quick menu items to the WordPress sidebar. It's designed to help webmasters have easy access to external pages such as Analytics and shopping carts in their WordPress admin panel.
 Author: Christopher Ross
 Version: 1.2.9
@@ -9,27 +9,19 @@ Author URI: http://thisismyurl.com/
 */
 
 
-/*  Copyright 2010  Christopher Ross  (email : info@thisismyurl.com)
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-*/
-
-
-
-
-
+/**
+ * WordPress Admin Quick Menu core file
+ *
+ * This file contains all the logic required for the plugin
+ *
+ * @link		http://wordpress.org/extend/plugins/wordpress-admin-quick-menu/
+ *
+ * @package 		WordPress Admin Quick Menu
+ * @copyright		Copyright (c) 2008, Chrsitopher Ross
+ * @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License, v2 (or newer)
+ *
+ * @since 		WordPress Admin Quick Menu 1.0
+ */
 
 
 if(!isset($timu)) $timu = new stdClass();
@@ -170,7 +162,7 @@ function WordPressAdminQuickMenu_options() {
 			$qm[5]->sec = 10;
 			$qm[6] = new stdClass();
 			$qm[6]->title = 'Make Donation';
-			$qm[6]->url = 'http://thisismyurl.com/downloads/wordpress/plugins/wordpress-admin-quick-menu/';
+			$qm[6]->url = 'http://thisismyurl.com/plugins/wordpress-admin-quick-menu/';
 			$qm[6]->sec = 10;
 		}
 		$qm_json = json_encode($qm);
@@ -207,10 +199,10 @@ function WordPressAdminQuickMenu_options() {
 										<div class='misc-pub-section misc-pub-section-last'>
 											<ul class='options' style='padding-left: 20px;'>
 												<style>.options a {text-decoration:none;}</style>
-												<li><a href='http://thisismyurl.com/downloads/wordpress/plugins/wordpress-admin-quick-menu/'>Plugin Homepage</a></li>
+												<li><a href='http://thisismyurl.com/plugins/wordpress-admin-quick-menu/'>Plugin Homepage</a></li>
 												<li><a href='http://wordpress.org/extend/plugins/wordpress-admin-quickmenu/'>Vote for this Plugin</a></li>
 												<li><a href='http://wordpress.org/tags/wordpress-admin-quickmenu'>Support Forum</a></li>
-												<li><a href='http://thisismyurl.com/downloads/wordpress/plugins/wordpress-admin-quick-menu/'>Donate</a></li>
+												<li><a href='http://thisismyurl.com/plugins/wordpress-admin-quick-menu/'>Donate</a></li>
 											</ul>
 										</div>
 									</div>
